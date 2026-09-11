@@ -1,26 +1,202 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* This creates a `font-bricolage` utility class */
+  --font-bricolage: var(--font-bricolage), var(--font-inter), sans-serif;
+  
+  /* This creates a `font-inter` utility class */
+  --font-inter: var(--font-inter), sans-serif;
+
+  /* OPTIONAL: If you want Bricolage to be your default font everywhere without adding classes, override the default sans font like this: */
+  --font-sans: var(--font-bricolage), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #F4F1EB;
+  --ink: #2B405A;
+  --ink-80: rgb(43  64  90 / 0.82);
+  --ink-60: rgb(43  64  90 / 0.64);
+  --ink-45: rgb(43  64  90 / 0.5);
+  --ink-32: rgb(43  64  90 / 0.4);
+  --surface: #FFFFFF;
+  --surface-2: #F6F3ED;
+  --line: rgb(43  64  90 / 0.13);
+  --line-2: rgb(43  64  90 / 0.22);
+  --line-3: rgb(43  64  90 / 0.36);
+  --grid: rgb(43  64  90 / 0.055);
+  --hover: rgb(43  64  90 / 0.055);
+  --nav-bg: rgb(250 248 243 / 0.8);
+  --scrim: rgb(24 20 16 / 0.42);
+  --shadow: rgb(24 20 14 / 0.3);
+  --veil: rgb(255 255 255 / 0.94);
+  /* inverted band (flips with the theme) */
+  --alt-bg: #0A0A0C;
+  --alt-ink: #F4F1EB;
+  --alt-ink-60: rgb(244 241 235 / 0.64);
+  --alt-ink-45: rgb(244 241 235 / 0.5);
+  --alt-surface: #15151A;
+  --alt-line: rgb(255 255 255 / 0.13);
+  --alt-line-2: rgb(255 255 255 / 0.22);
+  --alt-track: #26262C;
+  --eyebrow-alt: #FF8A5B;
+  /* brand */
+  --acc: #4F46E5; 
+  --acc-ink: #08080A;
+}
+
+.dark {
+  --bg: #08080A;
+  --ink: #F3F0E9;
+  --ink-80: rgb(243 240 233 / 0.82);
+  --ink-60: rgb(243 240 233 / 0.62);
+  --ink-45: rgb(243 240 233 / 0.46);
+  --ink-32: rgb(243 240 233 / 0.34);
+  --surface: #0D0D10;
+  --surface-2: #0A0A0D;
+  --line: rgb(255 255 255 / 0.1);
+  --line-2: rgb(255 255 255 / 0.17);
+  --line-3: rgb(255 255 255 / 0.32);
+  --grid: rgb(255 255 255 / 0.028);
+  --hover: rgb(255 255 255 / 0.06);
+  --nav-bg: rgb(43  64  90 / 0.72);
+  --scrim: rgb(4 4 6 / 0.6);
+  --shadow: rgb(0 0 0 / 0.9);
+  --veil: rgb(8 8 10 / 0.92);
+  --alt-bg: #F3F0E9;
+  --alt-ink: #08080A;
+  --alt-ink-60: rgb(8 8 10 / 0.62);
+  --alt-ink-45: rgb(8 8 10 / 0.46);
+  --alt-surface: #FFFFFF;
+  --alt-line: rgb(8 8 10 / 0.12);
+  --alt-line-2: rgb(8 8 10 / 0.2);
+  --alt-track: #EDEAE3;
+  --eyebrow-alt: #A8391A;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-ink: var(--ink);
+  --color-ink-80: var(--ink-80);
+  --color-ink-60: var(--ink-60);
+  --color-ink-45: var(--ink-45);
+  --color-ink-32: var(--ink-32);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-line-3: var(--line-3);
+  --color-hover: var(--hover);
+  --color-veil: var(--veil);
+  --color-alt-bg: var(--alt-bg);
+  --color-alt-ink: var(--alt-ink);
+  --color-alt-ink-60: var(--alt-ink-60);
+  --color-alt-ink-45: var(--alt-ink-45);
+  --color-alt-surface: var(--alt-surface);
+  --color-alt-line: var(--alt-line);
+  --color-alt-line-2: var(--alt-line-2);
+  --color-alt-track: var(--alt-track);
+  --color-acc: var(--acc);
+  --color-acc-ink: var(--acc-ink);
+  --color-eyebrow-alt: var(--eyebrow-alt);
+  --font-display: var(--font-bricolage), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-geist), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --animate-marquee: marquee 34s linear infinite;
+  --animate-bob: bob 2.4s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    
+    -webkit-font-smoothing: antialiased;
+    transition: background .5s ease, color .5s ease;
   }
+  /* the page bleeds horizontally in places; clip WITHOUT creating a
+     scroll container, or every position:sticky on the page dies */
+  body { overflow-x: clip; }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 0.94;
+    text-wrap: balance;
+  }
+  ::selection { background: var(--acc); color: var(--acc-ink); }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .12s !important; }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+      font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+      background-color: #F1F2F4;
+    -webkit-font-smoothing: antialiased;
+    transition: background .5s ease, color .5s ease;
+  }
+
+  body { overflow-x: clip; }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 0.94;
+    text-wrap: balance;
+  }
+  ::selection { background: var(--acc); color: var(--acc-ink); }
+}
+    @utility heading-1 {
+      font-family: var(--font-bricolage);
+      font-weight: 700; 
+      font-size: 38px;
+      line-height: 44px;
+      letter-spacing: -1.5px;
+    }
+    .tracking-super-tight { letter-spacing: -0.04em; }
+    .shadow-soft { box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.1); }
+    .bg-dots { background-image: radial-gradient(#CBD5E1 1.5px, transparent 1.5px); background-size: 32px 32px; }
+    
+    /* Custom scrollbar */
+    .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; margin-top: 32px; margin-bottom: 32px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #CBD5E1; border-radius: 20px; }
+    
+    /* Marker highlight */
+    .span-bg {
+      background-color: #E2F163; color: #2B405A; padding: 0 8px;
+      border-radius: 4px; display: inline-block; transform: rotate(-1deg); font-weight: 700;
+    }
+    
+    /* Tape effect for cards */
+    .tape-clip { clip-path: polygon(0% 0%, 96% 2%, 100% 98%, 4% 96%, 0% 100%, 2% 0%); }
+    
+    /* Animations */
+    @keyframes wiggle-icon {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-12deg) scale(1.15); }
+      75% { transform: rotate(12deg) scale(1.15); }
+    }
+    .group:hover .icon-wiggle { animation: wiggle-icon 0.4s ease-in-out forwards; }
+    
+    @keyframes shimmer { 100% { transform: translateX(100%); } }
+    
+    @keyframes currency-slide {
+      0%, 20% { transform: translateY(0); }
+      25%, 45% { transform: translateY(-20%); }
+      50%, 70% { transform: translateY(-40%); }
+      75%, 95% { transform: translateY(-60%); }
+      100% { transform: translateY(-80%); }
+    }
+    .animate-currency { animation: currency-slide 8s cubic-bezier(0.83, 0, 0.17, 1) infinite; }
