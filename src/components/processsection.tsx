@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useContext } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { ScrollContext } from "@/components/ui/app-layout";
 import Reveal from "./ui/reveal";
 import { processSteps } from "@/lib/data";
@@ -32,7 +32,7 @@ function Letter({ char, i, n, progress }: { char: string; i: number; n: number; 
   const rotate = useTransform(progress, [start, end], [i % 2 ? 3 : -3, 0]);
 
   return (
-    <motion.span style={{ opacity, y, rotate }} className="inline-block text-ink text-2xl md:text-3xl font-bold tracking-[0.2em] md:tracking-[0.3em]">
+    <motion.span style={{ opacity, y, rotate}} className="inline-block text-ink text-4xl md:text-6xl font-bold tracking-[0.2em] md:tracking-[0.3em] fontFamily: [var(--font-bricolage),'Bricolage Grotesque', sans-serif]">
       {char === " " ? "\u00A0" : char}
     </motion.span>
   );
@@ -46,7 +46,7 @@ export const ProcessSection: React.FC = () =>  {
   const { scrollYProgress } = useScroll({ 
     target: ref, 
     container: scrollContainer, 
-    offset: ["start 60%", "end 40%"] 
+    offset: ["start 60%", "end 40%"],
   });
   return (
   <section id="services" className="w-full bg-[#F9F9FA] px-4 py-20 md:py-32">
@@ -105,18 +105,18 @@ export const ProcessSection: React.FC = () =>  {
 
     {/* Section 3: Summary / Inefficiency Header */}
     <div ref={ref} className="max-w-3xl mx-auto text-center pb-20 md:pb-32 border-t border-line pt-20">
-        <h3 className="text-2xl md:text-[2.5rem] font-bold text-ink-45 tracking-tight">
+        <h3 className="text-4xl md:text-[2.5rem] font-bold text-ink-45 tracking-tight">
           What's the real Problem?
         </h3>
-        <div className="flex flex-nowrap justify-center mt-6">
+        <div className="flex flex-nowrap justify-center mt-6 ">
           {WORDS.map((c, i) => (
             <Letter key={i} char={c} i={i} n={WORDS.length} progress={scrollYProgress} />
           ))}
         </div>
         <Reveal delay={0.5}> 
         <p className="mt-10 text-xl/normal md:text-2xl font-medium text-ink-60">
-  Development isn't meant to be slow. It's meant to move <span className="span-bg">fast & scale</span>
-</p>
+          Development isn't meant to be slow. It's meant to move <span className="span-bg">fast & scale</span>
+        </p>
         </Reveal>
       </div>
 

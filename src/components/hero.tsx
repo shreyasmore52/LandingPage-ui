@@ -107,7 +107,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         if (r) setSpot({ x: e.clientX - r.left, y: e.clientY - r.top });
       }}
       onMouseLeave={() => setSpot(null)}
-      className="relative isolate flex min-h-screen flex-col justify-end px-6 pb-10 pt-33"
+      // className="relative isolate flex min-h-screen flex-col justify-end px-6 pb-10 pt-10 md:pt-10"
+      // className="relative isolate flex min-h-screen flex-col justify-end px-2 sm:px-4 pb-4 md:pb-8 pt-10 sm:pt-20 md:pt-20"
+      className="relative isolate flex flex-col justify-end px-4 sm:px-3 pb-2 md:pb-6 pt-6 sm:pt-10 md:pt-10"
+      // className="relative isolate flex flex-col justify-end px-4 sm:px-6 pb-4 md:pb-6 pt-12 md:pt-16"
     >
       <div
         aria-hidden
@@ -125,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
           background: `radial-gradient(340px 340px at ${spot?.x ?? 0}px ${spot?.y ?? 0}px, color-mix(in oklab, var(--acc) 28%, transparent), transparent 70%)`,
         }}
       />
-      <div className="flex flex-col items-center pt-16 md:pt-24 px-4 md:px-8 w-full max-w-4xl mx-auto z-10 relative min-h-[60vh] md:min-h-[70vh]">
+      <div className="flex flex-col items-center pt-16 md:pt-24 px-4 md:px-8 w-full max-w-4xl mx-auto z-10 relative min-h-[40vh] md:min-h-[30vh]">
         <Reveal>
         <p className="text-[10px] md:text-[11px] font-bold text-gray-400 tracking-[0.15em] uppercase mb-6 md:mb-8 text-center">
           100+ MVPs Launched in 2 Weeks
