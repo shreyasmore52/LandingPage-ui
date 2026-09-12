@@ -110,4 +110,18 @@ const stats: STATS[] = [
 
 const logos = ["northwind", "apptics", "cluely", "terac", "timefun", "orbital"];
 
-export { navData, trustedClients, processSteps, faqData, projectData, stats, logos };
+const QUOTES = [
+  { line: "They shipped the whole brand in the time our last studio spent scoping.", name: "R. Lee", role: "Founder, Cluely" },
+  { line: "First draft in two days. It was already better than what we had.", name: "Harsh", role: "Founder, Outreachify" },
+  { line: "One team held brand, product and the build. Nothing got lost.", name: "Greg V", role: "COO, Numbers" },
+];
+
+const TEAM = [
+  { name: "Vishu More", role: "Motion designer" },
+  { name: "Shreyas More", role: "Product designer" },
+  { name: "Rohan Koli", role: "Web / mobile" },
+  { name: "Ashish Pawar", role: "Web / mobile" },
+  { name: "Neha Mane", role: "Web designer" },
+  { name: "Abhijeet Salunkhe", role: "Brand designer" },
+];
+export { navData, trustedClients, processSteps, faqData, projectData, stats, logos, QUOTES, TEAM };
