@@ -13,7 +13,7 @@ export default function TeamMarquee() {
       <Marquee gap="gap-3.5">
         {TEAM.map((p) => (
           <div key={p.name} className="flex w-[min(240px,60vw)] flex-col gap-2.5">
-            <div className="relative aspect-3/4 overflow-hidden rounded-xl border border-line bg-gradient-to-b from-surface to-surface-2 transition-colors hover:border-ink-32">
+            <div className="relative aspect-3/4 overflow-hidden rounded-xl border border-line   bg-white from-surface to-surface-2 transition-colors hover:border-ink-32">
               <span className="mono absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[9px] text-ink-32">portrait</span>
             </div>
             <div className="flex flex-col">

@@ -33,7 +33,7 @@ export default function Testimonials() {
               <span className="absolute left-1/2 top-[44%] flex size-11.5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-bg">
                 <Play className="size-4" />
               </span>
-              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-veil to-transparent p-4.5">
+              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-veil to-transparent p-4.5 bg-white">
                 <motion.span
                   animate={{ opacity: on === i ? 1 : 0, y: on === i ? 0 : 8 }}
                   transition={{ duration: 0.4, delay: 0.1 }}

@@ -19,18 +19,16 @@ export const ProjectsSection: React.FC = () => {
     <div className="max-w-5xl mx-auto">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 md:mb-16 gap-4">
         <div>
-          <h2 className="text-4xl md:text-[3rem] font-semibold tracking-tight text-[#1D2B36] leading-none mb-4">Our Work</h2>
-          <p className="text-[#718096] text-base md:text-lg">Showcasing our expertise and commitment.</p>
+          <h2 className="text-4xl md:text-[3rem] font-semibold tracking-tight text-ink leading-none mb-4">Our Work</h2>
+          <p className="text-ink-45 text-base md:text-lg">Showcasing our expertise and commitment.</p>
         </div>
-        <a href="#projects" className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gray-50 rounded-full text-sm font-semibold text-[#1D2B36] transition-all duration-300 hover:bg-gray-200/70 hover:shadow-sm active:scale-95">
-          See All 
-          <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
-        </a>
+        
         <button 
             onClick={handleGoToProjects}
-            className="bg-black text-white px-4 py-2 rounded-lg"
+            className=" group inline-flex items-center justify-center gap-2 bg-ink-80 text-white hover:bg-ink hover:shadow-sm px-4 py-2 rounded-lg "
           >
             View Our Work
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 ease-out group-hover:translate-x-1" />
           </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
