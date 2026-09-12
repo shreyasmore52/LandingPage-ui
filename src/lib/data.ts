@@ -22,10 +22,54 @@ const trustedClients: Client[] = [
 ];
 
 const processSteps: ProcessStep[] = [
-  { id: 1, title: 'Discovery Call', desc: 'First, we understand your vision, business goals, and requirements to create a clear roadmap.', bgColor: 'bg-white', textColor: 'text-[#1D2B36]', rotate: '-rotate-1', tapeRotate: '-rotate-2', tapePos: '-top-3 left-10', numBg: 'bg-blue-50', numColor: 'text-blue-600' },
-  { id: 2, title: 'Design & Development', desc: 'We design intuitive interfaces and develop scalable solutions tailored to your needs.', bgColor: 'bg-[#1D2B36]', textColor: 'text-white', rotate: 'rotate-1', tapeRotate: 'rotate-3', tapePos: '-top-3 right-10', numBg: 'bg-white/10', numColor: 'text-white' },
-  { id: 3, title: 'QA & Testing', desc: 'Comprehensive testing ensures high performance, security, and reliability across all devices.', bgColor: 'bg-white', textColor: 'text-[#1D2B36]', rotate: 'rotate-2 md:-mt-8', tapeRotate: '-rotate-1', tapePos: '-top-3 left-1/2 -translate-x-1/2', numBg: 'bg-green-50', numColor: 'text-green-600' },
-  { id: 4, title: 'Deployment & Support', desc: 'We deploy your product smoothly and provide ongoing support for continuous improvement.', bgColor: 'bg-white', textColor: 'text-[#1D2B36]', rotate: '-rotate-2 md:mt-12', tapeRotate: 'rotate-2', tapePos: '-top-3 right-12', numBg: 'bg-purple-50', numColor: 'text-purple-600' },
+  { 
+    id: 1, 
+    title: 'Zero-Lag Architecture', 
+    desc: 'We map out the core product logic, tech stack, and user journey in days—not months. No bloated scopes, just crystal-clear execution.', 
+    bgColor: 'bg-white', 
+    textColor: 'text-[#1D2B36]', 
+    rotate: '-rotate-1', 
+    tapeRotate: '-rotate-2', 
+    tapePos: '-top-3 left-10', 
+    numBg: 'bg-blue-50', 
+    numColor: 'text-blue-600' 
+  },
+  { 
+    id: 2, 
+    title: 'Unified Build Engine', 
+    desc: 'Design, motion, and code happen simultaneously under one roof. The person shaping your interface is the one writing the logic.', 
+    bgColor: 'bg-[#1D2B36]', 
+    textColor: 'text-white', 
+    rotate: 'rotate-1', 
+    tapeRotate: 'rotate-3', 
+    tapePos: '-top-3 right-10', 
+    numBg: 'bg-white/10', 
+    numColor: 'text-white' 
+  },
+  { 
+    id: 3, 
+    title: 'Fluid Motion & Polish', 
+    desc: 'We layer in high-performance Framer Motion interactions, micro-feedback loops, and production-grade responsive polish that feels alive.', 
+    bgColor: 'bg-white', 
+    textColor: 'text-[#1D2B36]', 
+    rotate: 'rotate-2 md:-mt-8', 
+    tapeRotate: '-rotate-1', 
+    tapePos: '-top-3 left-1/2 -translate-x-1/2', 
+    numBg: 'bg-green-50', 
+    numColor: 'text-green-600' 
+  },
+  { 
+    id: 4, 
+    title: 'Rapid Deployment & Scale', 
+    desc: 'We push clean, battle-tested code straight to production with lightning-fast CI/CD pipelines built to handle massive user growth.', 
+    bgColor: 'bg-white', 
+    textColor: 'text-[#1D2B36]', 
+    rotate: '-rotate-2 md:mt-12', 
+    tapeRotate: 'rotate-2', 
+    tapePos: '-top-3 right-12', 
+    numBg: 'bg-purple-50', 
+    numColor: 'text-purple-600' 
+  },
 ];
 
 const faqData: Faq[] = [
@@ -66,4 +110,18 @@ const stats: STATS[] = [
 
 const logos = ["northwind", "apptics", "cluely", "terac", "timefun", "orbital"];
 
-export { navData, trustedClients, processSteps, faqData, projectData, stats, logos };
+const QUOTES = [
+  { line: "They shipped the whole brand in the time our last studio spent scoping.", name: "R. Lee", role: "Founder, Cluely" },
+  { line: "First draft in two days. It was already better than what we had.", name: "Harsh", role: "Founder, Outreachify" },
+  { line: "One team held brand, product and the build. Nothing got lost.", name: "Greg V", role: "COO, Numbers" },
+];
+
+const TEAM = [
+  { name: "Vishu More", role: "Motion designer" },
+  { name: "Shreyas More", role: "Product designer" },
+  { name: "Rohan Koli", role: "Web / mobile" },
+  { name: "Ashish Pawar", role: "Web / mobile" },
+  { name: "Neha Mane", role: "Web designer" },
+  { name: "Abhijeet Salunkhe", role: "Brand designer" },
+];
+export { navData, trustedClients, processSteps, faqData, projectData, stats, logos, QUOTES, TEAM };

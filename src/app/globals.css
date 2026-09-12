@@ -174,9 +174,28 @@
     .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #CBD5E1; border-radius: 20px; }
     
     /* Marker highlight */
-    .span-bg {
+    /* .span-bg {
       background-color: #E2F163; color: #2B405A; padding: 0 8px;
       border-radius: 4px; display: inline-block; transform: rotate(-1deg); font-weight: 700;
+    } */
+
+    @keyframes subtle-shake {
+      0%, 100% { transform: rotate(-1deg) translate(0, 0); }
+      20% { transform: rotate(-0.5deg) translate(-1px, 1px); }
+      40% { transform: rotate(-1.5deg) translate(1px, -1px); }
+      60% { transform: rotate(-0.5deg) translate(-1px, -1px); }
+      80% { transform: rotate(-1.5deg) translate(1px, 1px); }
+    }
+
+    .span-bg {
+      background-color: #E2F163; 
+      color: #2B405A; 
+      padding: 0 8px;
+      border-radius: 4px; 
+      display: inline-block; 
+      transform: rotate(-1deg); 
+      font-weight: 700;
+      animation: subtle-shake 0.8s ease-in-out infinite;
     }
     
     /* Tape effect for cards */

@@ -1,3 +1,7 @@
+"use client";
+import { useRef, useContext } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ScrollContext } from "@/components/ui/app-layout";
 import Reveal from "./ui/reveal";
 import { processSteps } from "@/lib/data";
 import { X, Check } from "lucide-react";
@@ -18,8 +22,35 @@ const SOLUTION_LINES = [
   "Built for speed. Crafted to scale."
 ];
 
-export const ProcessSection: React.FC = () => (
-  <div id="services" className="w-full bg-[#F9F9FA] px-4">
+const WORDS = "INEFFICIENCY".split("");
+
+function Letter({ char, i, n, progress }: { char: string; i: number; n: number; progress: ReturnType<typeof useScroll>["scrollYProgress"] }) {
+  const start = (i / n) * 0.5;
+  const end = start + 0.25;
+  const opacity = useTransform(progress, [start, end], [0.06, 1]);
+  const y = useTransform(progress, [start, end], [10, 0]);
+  const rotate = useTransform(progress, [start, end], [i % 2 ? 3 : -3, 0]);
+
+  return (
+    <motion.span style={{ opacity, y, rotate }} className="inline-block text-ink text-2xl md:text-3xl font-bold tracking-[0.2em] md:tracking-[0.3em]">
+      {char === " " ? "\u00A0" : char}
+    </motion.span>
+  );
+}
+
+export const ProcessSection: React.FC = () =>  {
+  const ref = useRef<HTMLDivElement>(null);
+  const scrollContainer = useContext(ScrollContext);
+  
+  // Dedicated tracker strictly for the Inefficiency word block
+  const { scrollYProgress } = useScroll({ 
+    target: ref, 
+    container: scrollContainer, 
+    offset: ["start 60%", "end 40%"] 
+  });
+  return (
+  <section id="services" className="w-full bg-[#F9F9FA] px-4 py-20 md:py-32">
+  
     {/* Section 1: The Reality */}
     <div className="max-w-3xl mx-auto py-20 md:py-32 text-left">
       <span className="mono text-[10px] text-ink-45 uppercase tracking-widest">The Reality</span>
@@ -48,7 +79,7 @@ export const ProcessSection: React.FC = () => (
 
     {/* Section 2: The Antidote */}
     <div className="max-w-3xl mx-auto pb-20 md:pb-32 text-left border-t border-line pt-20">
-      <span className="mono text-[10px] text-acc uppercase tracking-widest">The Antidote</span>
+      <span className="mono text-[10px] text-ink-45 uppercase tracking-widest">The Antidote</span>
       <Reveal delay={0.10}>
         <h2 className="text-2xl md:text-4xl font-medium tracking-tight text-ink leading-relaxed mb-16 mt-3">
           Design and code live under one roof.<br className="hidden md:block"/>
@@ -73,17 +104,21 @@ export const ProcessSection: React.FC = () => (
     </div>
 
     {/* Section 3: Summary / Inefficiency Header */}
-    <div className="max-w-3xl mx-auto text-center pb-12">
-      <h3 className="text-2xl md:text-[2.5rem] font-bold text-[#1D2B36] tracking-tight">
-        What's the real Problem?
-      </h3>
-      <div className="text-[#9CA3AF] text-xl md:text-2xl font-bold tracking-[0.2em] md:tracking-[0.3em] mt-6">
-        I N E F F I C I E N C Y
+    <div ref={ref} className="max-w-3xl mx-auto text-center pb-20 md:pb-32 border-t border-line pt-20">
+        <h3 className="text-2xl md:text-[2.5rem] font-bold text-ink-45 tracking-tight">
+          What's the real Problem?
+        </h3>
+        <div className="flex flex-nowrap justify-center mt-6">
+          {WORDS.map((c, i) => (
+            <Letter key={i} char={c} i={i} n={WORDS.length} progress={scrollYProgress} />
+          ))}
+        </div>
+        <Reveal delay={0.5}> 
+        <p className="mt-10 text-xl/normal md:text-2xl font-medium text-ink-60">
+  Development isn't meant to be slow. It's meant to move <span className="span-bg">fast & scale</span>
+</p>
+        </Reveal>
       </div>
-      <p className="mt-10 text-base md:text-lg font-medium text-[#718096]">
-        Development isn't meant to be slow. It's meant to move <span className="span-bg">fast & scale</span>
-      </p>
-    </div>
 
     {/* Section 4: Process Grid */}
     <div className="max-w-5xl mx-auto pb-20 md:pb-32 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-8">
@@ -98,5 +133,7 @@ export const ProcessSection: React.FC = () => (
         </div>
       ))}
     </div>
-  </div>
+  
+  </section>
 );
+}
