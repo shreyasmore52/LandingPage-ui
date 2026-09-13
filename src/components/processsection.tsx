@@ -105,7 +105,7 @@ export const ProcessSection: React.FC = () =>  {
 
     {/* Section 3: Summary / Inefficiency Header */}
     <div ref={ref} className="max-w-3xl mx-auto text-center pb-20 md:pb-32 border-t border-line pt-20">
-        <h3 className="text-4xl md:text-[2.5rem] font-bold text-ink-45 tracking-tight">
+        <h3 className="text-2xl md:text-[1.5rem] font-bold text-ink-45 tracking-tight">
           What's the real Problem?
         </h3>
         <div className="flex flex-nowrap justify-center mt-6 ">
@@ -114,8 +114,8 @@ export const ProcessSection: React.FC = () =>  {
           ))}
         </div>
         <Reveal delay={0.5}> 
-        <p className="mt-10 text-xl/normal md:text-2xl font-medium text-ink-60">
-          Development isn't meant to be slow. It's meant to move <span className="span-bg">fast & scale</span>
+        <p className="mt-10 text-xl/normal md:text-1.9 font-medium text-ink-60">
+          Development isn't meant to be slow. It's meant to move <span className="span-bg-white">fast & scale</span>
         </p>
         </Reveal>
       </div>
@@ -126,10 +126,10 @@ export const ProcessSection: React.FC = () =>  {
         <div key={step.id} className={`relative p-8 rounded-2xl shadow-xl border border-gray-100 transform ${step.rotate} hover:rotate-0 transition-transform duration-300 ${step.bgColor}`}>
           <div className={`absolute w-20 h-6 bg-amber-100/80 backdrop-blur-sm border border-amber-900/10 z-10 tape-clip ${step.tapePos} ${step.tapeRotate}`}></div>
           <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${step.numBg}`}>
-            <span className={`font-bold font-mono ${step.numColor}`}>0{step.id}</span>
+            <span className={`font-bold font-display ${step.numColor}`}>0{step.id}</span>
           </div>
           <h4 className={`text-xl font-bold mb-3 ${step.textColor}`}>{step.title}</h4>
-          <p className={`${step.bgColor === 'bg-[#1D2B36]' ? 'text-gray-400' : 'text-[#718096]'} text-sm leading-relaxed text-left`}>{step.desc}</p>
+          <p className={`${step.bgColor === 'bg-ink-80' ? 'text-gray-400' : 'text-[#718096]'} text-sm leading-relaxed text-left`}>{step.desc}</p>
         </div>
       ))}
     </div>
