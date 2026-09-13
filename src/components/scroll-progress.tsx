@@ -21,7 +21,7 @@ export default function ScrollProgress() {
   return (
     <div className="fixed inset-x-0 top-0 z-70 h-0.5 bg-line">
       <motion.div 
-        className="h-full origin-left bg-acc" 
+        className="h-full origin-left bg-ink" 
         style={{ scaleX }} 
       />
     </div>
