@@ -108,24 +108,6 @@
 @keyframes marquee { to { transform: translateX(-50%); } }
 @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
-@layer base {
-  html { scroll-behavior: smooth; }
-  body {
-    -webkit-font-smoothing: antialiased;
-    transition: background .5s ease, color .5s ease;
-  }
-  /* the page bleeds horizontally in places; clip WITHOUT creating a
-     scroll container, or every position:sticky on the page dies */
-  body { overflow-x: clip; }
-  h1, h2, h3 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.035em;
-    line-height: 0.94;
-    text-wrap: balance;
-  }
-  ::selection { background: var(--acc); color: var(--acc-ink); }
-}
 
 @utility mono {
   font-family: var(--font-mono);
@@ -140,7 +122,7 @@
 @layer base {
   html { scroll-behavior: smooth; }
   body {
-      font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+      
       background-color: #F1F2F4;
     -webkit-font-smoothing: antialiased;
     transition: background .5s ease, color .5s ease;
@@ -154,7 +136,16 @@
     line-height: 0.94;
     text-wrap: balance;
   }
-  ::selection { background: var(--acc); color: var(--acc-ink); }
+  ::selection {
+    background-color: #ffffff;
+    color: var(--ink);
+  }
+
+  /* Fallback for older Firefox versions */
+  ::-moz-selection {
+    background-color: #ffffff;
+    color: var(--ink);
+  }
 }
     @utility heading-1 {
       font-family: var(--font-bricolage);
@@ -187,8 +178,8 @@
     }
 
     .span-bg {
-      background-color: #E2F163; 
-      color: #2B405A; 
+      background-color: #ffffff; 
+      color: var(--ink); 
       padding: 0 8px;
       border-radius: 4px; 
       display: inline-block; 
@@ -196,7 +187,20 @@
       font-weight: 700;
       
     }
-    .span-bg:hover {
+
+     .span-bg-white {
+      background-color: var(--ink); 
+      color: white; 
+      padding: 0 8px;
+      border-radius: 4px; 
+      display: inline-block; 
+      transform: rotate(-1deg); 
+      font-weight: 700;
+      
+    }
+    
+    .span-bg:hover, 
+    .span-bg-white:hover {
       animation: subtle-shake 0.4s ease-in-out both;
     }
     /* Tape effect for cards */
@@ -220,3 +224,31 @@
       100% { transform: translateY(-80%); }
     }
     .animate-currency { animation: currency-slide 8s cubic-bezier(0.83, 0, 0.17, 1) infinite; }
+
+    @keyframes glass-sweep {
+      0% { left: -100%; }
+      100% { left: 200%; }
+    }
+
+    .animate-glass-sweep {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .animate-glass-sweep::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.4) 50%, 
+        rgba(255,255,255,0) 100%
+      );
+      transform: skewX(-20deg);
+      animation: glass-sweep 3s infinite;
+      pointer-events: none;
+    }

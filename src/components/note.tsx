@@ -10,7 +10,7 @@ export default function Note() {
   return (
     <section className="px-6 pb-27">
       <div className="mx-auto flex w-[min(860px,100%)] flex-col gap-5.5 rounded-[20px] border border-line bg-surface p-11">
-        <span className="mono text-[10px] text-ink-32">A note from us</span>
+        <span className="mono text-[10px] text-ink-80">A note from us</span>
         <Reveal>
           <p className="text-[clamp(18px,2.4vw,30px)] leading-[1.4] tracking-[-0.02em] text-pretty text-ink">
             Someday you&apos;ll look back at the first version of this product and remember two things: the moment it finally felt right, and who was in the room.
