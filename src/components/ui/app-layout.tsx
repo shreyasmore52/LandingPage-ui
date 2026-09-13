@@ -34,12 +34,14 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
           <header className="md:hidden flex items-center justify-between p-4 bg-white shadow-sm z-30 shrink-0">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-black rounded-md flex items-center justify-center">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+              <div className="w-6 h-6 rounded-md flex items-center justify-center">
+                 <img 
+                  src="/icon.png" 
+                  alt="BuildLabs Logo"
+                  className="w-full h-full object-contain" 
+                />
               </div>
-              <span className="text-lg font-black tracking-tighter text-[#2C3B4E]">BUILDLABS</span>
+              <span className="text-lg font-black tracking-tighter text-[#2C3B4E]">Build Labs</span>
             </div>
             <button onClick={() => setIsSidebarOpen(true)} className="p-2 bg-gray-100 rounded-lg">
               <Menu className="w-5 h-5 text-gray-700" />

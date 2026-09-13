@@ -31,12 +31,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen, onOpenAiCha
       <div className="flex flex-col flex-1">
         {/* Logo */}
         <div className="flex items-center gap-2 px-4 mb-10 mt-2 md:mt-0">
-          <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+            <img 
+                  src="/icon.png" 
+                  alt="BuildLabs Logo"
+                  className="w-full h-full object-contain" 
+                />
           </div>
-          <span className="text-2xl font-black tracking-tighter text-[#2C3B4E]">BUILDLABS</span>
+          <span className="text-2xl font-black tracking-tighter text-[#07090d]">Build Labs</span>
         </div>
 
         {/* Navigation Menu */}
