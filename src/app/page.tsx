@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+
 import { Hero } from '@/components/hero';
 import { Reel } from '@/components/reel'
 import { ProcessSection } from '@/components/processsection';
@@ -14,11 +14,10 @@ import Note from '@/components/note';
 
 export default function Home() {
 
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
   return ( 
     <>
       {/* Scrollable Main Content */}
-        <Hero onOpenBooking={() => setIsBookingOpen(true)} />
+        <Hero />
         <LogoMarquee />
         <Stats />
         <Reel />
@@ -27,7 +26,7 @@ export default function Home() {
         <Testimonials />
         <TeamMarquee />
         <Note />
-        <PricingSection onOpenBooking={() => setIsBookingOpen(true)} />
+        <PricingSection />
         <FAQSection />
       </>
      
