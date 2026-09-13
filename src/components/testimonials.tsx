@@ -30,7 +30,7 @@ export default function Testimonials() {
               className="relative aspect-3/4 max-h-110 min-w-[min(100%,240px)] flex-1 cursor-pointer overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-surface to-surface-2 transition-colors hover:border-[color-mix(in_oklab,var(--ink)_55%,transparent)]"
             >
               <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,var(--grid)_0_12px,transparent_12px_24px)]" />
-              <span className="absolute left-1/2 top-[44%] flex size-11.5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-ink text-bg">
+              <span className="absolute left-1/2 top-[44%] flex size-11.5 -translate-x-1/2 -translate-y-1/2 animate-glass-sweep items-center justify-center rounded-full bg-ink text-bg">
                 <Play className="size-4" />
               </span>
               <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 bg-gradient-to-t from-veil to-transparent p-4.5 bg-white">
