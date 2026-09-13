@@ -6,10 +6,10 @@ import {
 
 
 const navData: NavItem[] = [
-  { id: 'home', label: 'Home', icon: House, href: '#', colors: 'text-[#1A202C] hover:text-blue-600 bg-gray-50 hover:bg-blue-50' },
-  { id: 'projects', label: 'Projects', icon: Layers, href: '#projects', colors: 'text-[#718096] hover:text-purple-700 hover:bg-purple-50 group-hover:text-purple-600' },
-  { id: 'capabilities', label: 'Capabilities', icon: Cpu, href: '#services', colors: 'text-[#718096] hover:text-amber-700 hover:bg-amber-50 group-hover:text-amber-600' },
-  { id: 'pricing', label: 'Pricing', icon: CircleDollarSign, href: '#pricing', colors: 'text-[#718096] hover:text-green-700 hover:bg-green-50 group-hover:text-green-600' },
+  { id: 'home', label: 'Home', icon: House, href: '/', colors: 'text-[#1A202C] hover:text-blue-600 bg-gray-50 hover:bg-blue-50' },
+  { id: 'projects', label: 'Projects', icon: Layers, href: '/#projects', colors: 'text-[#718096] hover:text-purple-700 hover:bg-purple-50 group-hover:text-purple-600' },
+  { id: 'capabilities', label: 'Capabilities', icon: Cpu, href: '/#services', colors: 'text-[#718096] hover:text-amber-700 hover:bg-amber-50 group-hover:text-amber-600' },
+  { id: 'pricing', label: 'Pricing', icon: CircleDollarSign, href: '/#pricing', colors: 'text-[#718096] hover:text-green-700 hover:bg-green-50 group-hover:text-green-600' },
 ];
 
 const trustedClients: Client[] = [
